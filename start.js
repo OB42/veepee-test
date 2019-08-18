@@ -1,7 +1,9 @@
 const app = require('express')();
 const bodyParser = require('body-parser');
+var tree = require('./trie.js')
 var data = {};
 var tmp = require(`${__dirname}/${process.env.NAMES_FILE || "names.json"}`);
+
 for (name in tmp)
 {
 	data[name.toLowerCase()] = {name, times: tmp[name]}
