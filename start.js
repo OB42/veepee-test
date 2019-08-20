@@ -29,10 +29,14 @@ app
 		res.end(JSON.stringify(data[req.body.name.toLowerCase()]));
 	}
 })
-.get(/\/typeahead\/(.*)/, function (req, res) {
-	var prefix = req.params[0]
+.get('/typeahead/:prefix', function (req, res) {
 	res.setHeader('Content-Type', 'application/json');
 	res.status(200);
-	res.end(JSON.stringify(tree.find(prefix)));
+	res.end(JSON.stringify(tree.find(req.params.prefix)));
+})
+.get('/typeahead/', function (req, res) {
+	res.setHeader('Content-Type', 'application/json');
+	res.status(200);
+	res.end(JSON.stringify(tree.find('')));
 })
 app.listen(process.env.PORT || 8080);
