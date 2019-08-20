@@ -4,7 +4,7 @@
   "description": "",
   "main": "start.js",
   "scripts": {
-    "test": "NAMES_FILE=test.json ./node_modules/.bin/mocha test.js",
+    "test": "NAMES_FILE=./test/test.json ./node_modules/.bin/mocha ./test/test.js",
     "start": "NAMES_FILE=names.json node start.js"
   },
   "author": "Otmane Benazzou",
