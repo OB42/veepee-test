@@ -3,6 +3,7 @@ module.exports = class trieNode {
 		this.children = {};
 		this.value = value;
 	}
+
 	find(key) {
 		key = key.toLowerCase();
 		var tmp = this;
@@ -10,7 +11,7 @@ module.exports = class trieNode {
 		{
 				if (tmp.children[key[i]])
 				{
-					tmp = tmp.children[key[i]]
+					tmp = tmp.children[key[i]];
 				}
 				else
 				{
@@ -21,11 +22,11 @@ module.exports = class trieNode {
 		(function recursive_search(node) {
 			if (node.value && node.value.name.toLowerCase() != key)
 			{
-				arr.push(node.value)
+				arr.push(node.value);
 			}
 			for (var i in node.children)
 			{
-				recursive_search(node.children[i])
+				recursive_search(node.children[i]);
 			}
 		})(tmp);
 		arr.sort((a, b) => b.times - a.times);
@@ -35,6 +36,7 @@ module.exports = class trieNode {
 		}
 		return (arr.slice(0, process.env.SUGGESTION_NUMBER));
 	}
+
 	insert(key, value)
 	{
 		key = key.toLowerCase();
